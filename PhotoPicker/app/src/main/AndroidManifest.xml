@@ -23,6 +23,7 @@
         </activity>
 
         <activity android:name=".GalleryActivity"/>
+        <activity android:name=".GallerySelectedActivity"/>
 
     </application>
 

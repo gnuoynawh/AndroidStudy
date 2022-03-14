@@ -11,6 +11,8 @@ import android.provider.MediaStore
 import android.text.TextUtils
 import android.util.TypedValue
 import android.view.View
+import android.widget.CompoundButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
@@ -18,10 +20,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.bumptech.glide.Glide
-import com.gnuoynawh.exam.photopicker.GalleryAdapter.OnItemClickListener
 
 
-class GalleryActivity : AppCompatActivity() {
+class GallerySelectedActivity : AppCompatActivity() {
 
     private val imageView by lazy {
         findViewById<AppCompatImageView>(R.id.imageview)
@@ -49,7 +50,7 @@ class GalleryActivity : AppCompatActivity() {
     }
     private fun initView() {
 
-        val fileList = ArrayList<String>()
+        val fileList = ArrayList<Photo>()
         val uri: Uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
 
         val projection = arrayOf(
@@ -76,19 +77,30 @@ class GalleryActivity : AppCompatActivity() {
                 }
 
                 if (!TextUtils.isEmpty(absolutePathOfImage)) {
-                    fileList.add(absolutePathOfImage)
+                    fileList.add(Photo(absolutePathOfImage, false))
                 }
             }
         }
 
-        val adapter = GalleryAdapter(this, fileList)
-        adapter.setOnItemClickListener(object : OnItemClickListener {
+        val adapter = GallerySelectedAdapter(this, fileList)
+        adapter.setOnItemClickListener(object : GallerySelectedAdapter.OnItemClickListener {
             override fun onClick(position: Int) {
-                Glide.with(this@GalleryActivity)
-                    .load(fileList[position])
+                Glide.with(this@GallerySelectedActivity)
+                    .load(fileList[position].url)
                     .into(imageView)
             }
         })
+        adapter.setOnCheckedChangeListener(object : GallerySelectedAdapter.OnCheckedChangeListener {
+            override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean, position: Int) {
+                val count: Int = adapter.getCheckedCount()
+
+                if (count > 5) {
+                    Toast.makeText(this@GallerySelectedActivity, "5개까지 선택가능합니다", Toast.LENGTH_SHORT).show()
+                    adapter.setChecked(false, position)
+                }
+            }
+        })
+
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(this, 4, GridLayoutManager.VERTICAL, false)
         recyclerView.addItemDecoration(object: ItemDecoration() {
@@ -108,7 +120,7 @@ class GalleryActivity : AppCompatActivity() {
                     return
                 }
 
-                val spacing: Int = dpToPx(this@GalleryActivity, 3.0f)
+                val spacing: Int = dpToPx(this@GallerySelectedActivity, 3.0f)
 
                 outRect.top = if (isInTheFirstRow(position, totalSpanCount)) 0 else spacing
                 outRect.left = if (isFirstInRow(position, totalSpanCount)) 0 else spacing / 2
@@ -141,10 +153,15 @@ class GalleryActivity : AppCompatActivity() {
             }
 
             private fun dpToPx(context: Context, dp: Float): Int {
-                return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.resources.displayMetrics).toInt()
+                return TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    dp,
+                    context.resources.displayMetrics
+                ).toInt()
             }
         })
 
+        recyclerView.smoothScrollToPosition(0)
     }
 
     private val REQUEST_CODE = 101
