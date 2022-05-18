@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         val list = ArrayList<String>()
         list.add("Galley")
         list.add("Galley With Selected")
+        list.add("Galley Folders")
 
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list)
         listView.adapter = adapter
@@ -29,8 +30,12 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this, GalleryActivity::class.java)
                     startActivity(intent)
                 }
-                else -> {
+                1 -> {
                     val intent = Intent(this, GallerySelectedActivity::class.java)
+                    startActivity(intent)
+                }
+                else -> {
+                    val intent = Intent(this, GalleryFolderActivity::class.java)
                     startActivity(intent)
                 }
             }

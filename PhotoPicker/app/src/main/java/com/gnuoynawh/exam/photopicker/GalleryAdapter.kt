@@ -1,5 +1,6 @@
 package com.gnuoynawh.exam.photopicker
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 class GalleryAdapter(private val context: Context,
-                     private val list: ArrayList<String>)
+                     private var list: ArrayList<String>?)
     : RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GalleryViewHolder {
@@ -18,8 +19,7 @@ class GalleryAdapter(private val context: Context,
     }
 
     override fun onBindViewHolder(holder: GalleryViewHolder, position: Int) {
-
-        val url: String = list[position]
+        val url: String = list!![position]
 
         // image
         Glide.with(context)
@@ -32,7 +32,15 @@ class GalleryAdapter(private val context: Context,
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return list!!.size
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public fun notifyDataChange(list: ArrayList<String>?) {
+        if (list != null) {
+            this.list = list
+            notifyDataSetChanged()
+        }
     }
 
     class GalleryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

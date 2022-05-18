@@ -34,6 +34,11 @@ import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
+    /*
+        https://stackoverflow.com/questions/70164601/android-camerax-image-capture-onimagesaved-never-runs
+        https://stackoverflow.com/questions/68008829/all-images-taken-with-android-camerax-have-incorrect-orientation-in-their-exif-d
+        https://stackoverflow.com/questions/66994291/imagecapture-takepicture-saved-image-convert-to-bitmap
+     */
     val listView: ListView by lazy {
         findViewById(R.id.listView)
     }

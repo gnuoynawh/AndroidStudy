@@ -24,6 +24,7 @@
 
         <activity android:name=".GalleryActivity"/>
         <activity android:name=".GallerySelectedActivity"/>
+        <activity android:name=".GalleryFolderActivity"/>
 
     </application>
 
