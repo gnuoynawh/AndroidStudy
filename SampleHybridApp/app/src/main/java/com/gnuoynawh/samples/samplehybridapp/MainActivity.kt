@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import android.webkit.CookieManager
 import android.webkit.WebSettings
 import android.webkit.WebView
@@ -14,11 +15,20 @@ import com.airbnb.lottie.LottieAnimationView
 
 class MainActivity : AppCompatActivity() {
 
+    private val URL = "https://www.naver.com"
+    private var isFinish = false
+
     private val webView: WebView by lazy {
         findViewById(R.id.webView)
     }
 
-    private val URL = "https://www.naver.com"
+    private val loadingView: RelativeLayout by lazy {
+        findViewById(R.id.rl_loading)
+    }
+
+    private val animationView: LottieAnimationView by lazy {
+        findViewById(R.id.lottie)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,5 +87,62 @@ class MainActivity : AppCompatActivity() {
         webView.webChromeClient = MyWebChromeClient(this, webView)
 
         webView.loadUrl(URL)
+    }
+
+    override fun onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack()
+        } else {
+            if (isFinish) {
+                super.onBackPressed()
+            } else {
+                Toast.makeText(this, "뒤로가기 버튼을 한번더 누르시면 종료됩니다.", Toast.LENGTH_LONG).show()
+                isFinish = true
+                Handler(Looper.myLooper()!!).postDelayed({
+                    isFinish = false
+                }, 2000)
+            }
+        }
+    }
+
+    public fun showLoading() {
+        if (loadingView.visibility == View.GONE) {
+            loadingView.visibility = View.VISIBLE
+        }
+        animationView.setAnimation("loading.json")
+        animationView.playAnimation()
+        animationView.repeatCount = 100
+    }
+
+    public fun hideLoading() {
+        if (loadingView.visibility == View.VISIBLE) {
+            loadingView.visibility = View.GONE
+        }
+
+        if (loadingView.isShown) {
+            loadingView.clearAnimation()
+        }
+    }
+
+    /**
+     * 해당 URL 에 대한 쿠키값 가져오기
+     * @param url - 도메인
+     * @param cookieName - 원하는 쿠키 이름
+     */
+    private fun getCookie(url: String, cookieName: String): String {
+        var cookieValue = ""
+        val cookieManager = CookieManager.getInstance()
+        val cookies = cookieManager.getCookie(url)
+        if (cookies != null) {
+            val temp = cookies.split(";")
+            for (arg in temp) {
+                if (arg.contains(cookieName)) {
+                    val value = arg.split("=")
+                    cookieValue = value[1]
+                    break
+                }
+            }
+        }
+        return cookieValue
     }
 }

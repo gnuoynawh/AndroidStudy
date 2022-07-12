@@ -2,22 +2,27 @@ package com.gnuoynawh.samples.samplehybridapp
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.content.DialogInterface
+import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.net.http.SslError
 import android.webkit.*
 
 class MyWebViewClient(
-    val activity: MainActivity,
-    val webView: WebView
+    private val activity: MainActivity,
+    private val webView: WebView
 ) : WebViewClient() {
 
     override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
         super.onPageStarted(view, url, favicon)
+
+        activity.showLoading()
     }
 
     override fun onPageFinished(view: WebView?, url: String?) {
         super.onPageFinished(view, url)
+
+        activity.hideLoading()
     }
 
     @SuppressLint("WebViewClientOnReceivedSslError")
@@ -72,9 +77,23 @@ class MyWebViewClient(
 
     override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
 
-        //
-        //
-        //
+        val url = webView.url
+
+        if (url?.startsWith("tel:") == true) {
+            val intent = Intent(Intent.ACTION_DIAL, Uri.parse(request!!.url.toString()))
+            activity.startActivity(intent)
+            return true
+        }
+
+        else if (url?.startsWith("market:") == true) {
+            return try {
+                val intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME)
+                activity.startActivity(intent)
+                true
+            } catch (e: Exception) {
+                false
+            }
+        }
 
         return super.shouldOverrideUrlLoading(view, request)
     }

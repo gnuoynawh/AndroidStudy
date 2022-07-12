@@ -8,8 +8,8 @@ import android.webkit.WebView
 import android.webkit.WebView.WebViewTransport
 
 class MyWebChromeClient(
-    val activity: MainActivity,
-    val webView: WebView
+    private val activity: MainActivity,
+    private val webView: WebView
 ) : WebChromeClient() {
 
     override fun onJsAlert(view: WebView?, url: String?, message: String?, result: JsResult?): Boolean {
