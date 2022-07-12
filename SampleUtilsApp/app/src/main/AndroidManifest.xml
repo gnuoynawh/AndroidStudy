@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SampleUtilsApp">
         <activity
-            android:name=".MainActivity"
+            android:name=".base.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +19,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".VersionCheckActivity"/>
+        <activity android:name=".ui.foldable.FoldableActivity"/>
+        <activity android:name=".ui.setting.LanguageActivity"/>
+        <activity android:name=".ui.CalendarActivity"/>
+        <activity android:name=".ui.HtmlParseActivity"/>
+        <activity android:name=".ui.VersionCheckActivity"/>
     </application>
 
 </manifest>

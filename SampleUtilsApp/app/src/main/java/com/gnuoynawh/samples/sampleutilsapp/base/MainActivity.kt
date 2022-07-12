@@ -1,4 +1,4 @@
-package com.gnuoynawh.samples.sampleutilsapp
+package com.gnuoynawh.samples.sampleutilsapp.base
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,6 +7,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.gnuoynawh.samples.sampleutilsapp.R
+import com.gnuoynawh.samples.sampleutilsapp.ui.CalendarActivity
+import com.gnuoynawh.samples.sampleutilsapp.ui.HtmlParseActivity
+import com.gnuoynawh.samples.sampleutilsapp.ui.foldable.FoldableActivity
+import com.gnuoynawh.samples.sampleutilsapp.ui.VersionCheckActivity
+import com.gnuoynawh.samples.sampleutilsapp.ui.setting.LanguageActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,6 +50,10 @@ class MainActivity : AppCompatActivity() {
     private fun setData() {
 
         works.add(Work("버전체크", VersionCheckActivity::class.java))
+        works.add(Work("폴더블 화면 구현", FoldableActivity::class.java))
+        works.add(Work("캘린더/날짜 정리", CalendarActivity::class.java))
+        works.add(Work("언어 변환", LanguageActivity::class.java))
+        works.add(Work("Html 파싱", HtmlParseActivity::class.java))
         adapter.notifyDataSetChanged()
 
     }
