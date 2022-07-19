@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gnuoynawh.samples.sampleutilsapp.R
 import com.gnuoynawh.samples.sampleutilsapp.ui.CalendarActivity
 import com.gnuoynawh.samples.sampleutilsapp.ui.HtmlParseActivity
+import com.gnuoynawh.samples.sampleutilsapp.ui.OpenChromeActivity
 import com.gnuoynawh.samples.sampleutilsapp.ui.foldable.FoldableActivity
 import com.gnuoynawh.samples.sampleutilsapp.ui.VersionCheckActivity
 import com.gnuoynawh.samples.sampleutilsapp.ui.setting.LanguageActivity
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         works.add(Work("캘린더/날짜 정리", CalendarActivity::class.java))
         works.add(Work("언어 변환", LanguageActivity::class.java))
         works.add(Work("Html 파싱", HtmlParseActivity::class.java))
+        works.add(Work("크롬 실행시키기", OpenChromeActivity::class.java))
         adapter.notifyDataSetChanged()
 
     }

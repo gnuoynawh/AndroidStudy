@@ -25,6 +25,7 @@
         <activity android:name=".ui.CalendarActivity"/>
         <activity android:name=".ui.HtmlParseActivity"/>
         <activity android:name=".ui.VersionCheckActivity"/>
+        <activity android:name=".ui.OpenChromeActivity"/>
     </application>
 
 </manifest>

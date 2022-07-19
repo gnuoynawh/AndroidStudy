@@ -1,4 +1,4 @@
-package com.gnuoynawh.exam.openchrome
+package com.gnuoynawh.samples.sampleutilsapp.ui
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -6,9 +6,9 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import com.gnuoynawh.samples.sampleutilsapp.R
 
-
-class MainActivity : AppCompatActivity() {
+class OpenChromeActivity: AppCompatActivity() {
 
     private val urlString = "http://m.naver.com"
 
@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_open_chrome)
 
         btnBrowser.setOnClickListener {
             openBrowser()
