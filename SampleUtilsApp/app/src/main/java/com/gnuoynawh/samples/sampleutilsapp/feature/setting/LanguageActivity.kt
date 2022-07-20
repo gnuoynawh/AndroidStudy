@@ -1,4 +1,4 @@
-package com.gnuoynawh.samples.sampleutilsapp.ui.setting
+package com.gnuoynawh.samples.sampleutilsapp.feature.setting
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

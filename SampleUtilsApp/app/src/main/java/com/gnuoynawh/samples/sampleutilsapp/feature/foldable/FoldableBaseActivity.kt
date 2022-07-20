@@ -1,4 +1,4 @@
-package com.gnuoynawh.samples.sampleutilsapp.ui.foldable
+package com.gnuoynawh.samples.sampleutilsapp.feature.foldable
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

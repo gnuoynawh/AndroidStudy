@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gnuoynawh.samples.sampleutilsapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -20,8 +23,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.foldable.FoldableActivity"/>
-        <activity android:name=".ui.setting.LanguageActivity"/>
+        <activity android:name=".feature.foldable.FoldableActivity"/>
+        <activity android:name=".feature.setting.LanguageActivity"/>
+        <activity android:name=".feature.photo.CameraActivity"/>
+        <activity android:name=".feature.photo.TakePictureActivity"/>
+        <activity android:name=".feature.photo.GetPictureFromGalleryActivity"/>
         <activity android:name=".ui.CalendarActivity"/>
         <activity android:name=".ui.HtmlParseActivity"/>
         <activity android:name=".ui.VersionCheckActivity"/>
