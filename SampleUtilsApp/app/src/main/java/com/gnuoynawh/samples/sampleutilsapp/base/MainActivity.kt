@@ -14,6 +14,7 @@ import com.gnuoynawh.samples.sampleutilsapp.R
 import com.gnuoynawh.samples.sampleutilsapp.feature.photo.GetPictureFromGalleryActivity
 import com.gnuoynawh.samples.sampleutilsapp.feature.photo.TakePictureActivity
 import com.gnuoynawh.samples.sampleutilsapp.ui.OpenChromeActivity
+import com.gnuoynawh.samples.sampleutilsapp.ui.PopupTestActivity
 import com.gnuoynawh.samples.sampleutilsapp.ui.VersionCheckActivity
 
 class MainActivity : AppCompatActivity() {
@@ -59,10 +60,11 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("NotifyDataSetChanged")
     private fun setData() {
 
-        works.add(Work("버전체크", VersionCheckActivity::class.java))
-        works.add(Work("크롬 실행시키기", OpenChromeActivity::class.java))
+        works.add(Work("팝업 테스트", PopupTestActivity::class.java))
         works.add(Work("사진 - 카메라 촬영", TakePictureActivity::class.java))
         works.add(Work("사진 - 갤러리에서 가져오기", GetPictureFromGalleryActivity::class.java))
+        works.add(Work("버전체크", VersionCheckActivity::class.java))
+        works.add(Work("크롬 실행시키기", OpenChromeActivity::class.java))
 
         // works.add(Work("폴더블 화면 구현", FoldableActivity::class.java))
         // works.add(Work("캘린더/날짜 정리", CalendarActivity::class.java))

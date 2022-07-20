@@ -32,6 +32,7 @@
         <activity android:name=".ui.HtmlParseActivity"/>
         <activity android:name=".ui.VersionCheckActivity"/>
         <activity android:name=".ui.OpenChromeActivity"/>
+        <activity android:name=".ui.PopupTestActivity"/>
     </application>
 
 </manifest>
