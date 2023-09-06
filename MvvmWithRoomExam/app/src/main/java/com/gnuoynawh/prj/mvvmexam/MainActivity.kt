@@ -12,14 +12,13 @@ import com.gnuoynawh.prj.mvvmexam.databinding.ActivityMainBinding
 /**
  * MVVM 예제
  *  - 참고
- *      https://jminie.tistory.com/168
- *      https://velog.io/@dldmswo1209/Android-MVVM-Pattern-%EC%A0%81%EC%9A%A9-%EC%98%88%EC%A0%9C
+ *      https://todaycode.tistory.com/34
+ *      https://underdog11.tistory.com/entry/Kotlin-MVVM-Room-Database-%EC%82%AC%EC%9A%A9%EB%B2%95-%EB%B0%8F-%EC%82%AC%EC%9A%A9%EC%98%88%EC%A0%9C-Entity-RoomDatabase-DAO-repository-ViewModel-coroutine-MVVM-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0
  */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val mainViewModel: MainViewModel by viewModels()
-//    private lateinit var mainViewModel: MainViewModel
     private val adapter = ListAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,11 +27,6 @@ class MainActivity : AppCompatActivity() {
         // DataBinding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        // init ViewModel
-        //mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        //binding.viewModel = mainViewModel
-        //binding.lifecycleOwner
 
         // LiveData Observe!
         mainViewModel.items.observe(this) {
