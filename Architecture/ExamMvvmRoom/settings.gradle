@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ExamMvvm"
+rootProject.name = "ExamMvvmRoom"
 include ':app'

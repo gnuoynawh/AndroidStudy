@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.gnuoynawh.prj.exam", appContext.packageName)
+        assertEquals("com.gnuoynawh.prj.ExamMvvmRoom", appContext.packageName)
     }
 }
