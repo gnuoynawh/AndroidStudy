@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace 'com.gnuoynawh.codelab.basics'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.gnuoynawh.codelab.basics"
