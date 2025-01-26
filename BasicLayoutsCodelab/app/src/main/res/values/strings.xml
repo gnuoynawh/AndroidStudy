@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BasicLayoutsCodelab</string>
+    <string name="search">search</string>
+    <string name="inversions">Inversions</string>
+    <string name="nature_meditations">Nature meditations</string>
+    <string name="alignyourbody">AlignYourBody</string>
+    <string name="favoritecard">FavoriteCard</string>
+    <string name="home">Home</string>
+    <string name="profile">profile</string>
+</resources>
