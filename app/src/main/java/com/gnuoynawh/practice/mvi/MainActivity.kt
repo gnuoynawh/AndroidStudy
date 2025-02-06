@@ -21,14 +21,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    //private val viewModel: CounterViewModel by viewModels()
+    private val viewModel: CounterViewModel by viewModels()
 
-    private val viewModel : CounterViewModel by viewModels {
-        CounterViewModelFactory(CounterRepository(CounterDatabase.getDatabase(this).counterDao()))
-    }
+//    private val viewModel : CounterViewModel by viewModels {
+//        CounterViewModelFactory(CounterRepository(CounterDatabase.getDatabase(this).counterDao()))
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

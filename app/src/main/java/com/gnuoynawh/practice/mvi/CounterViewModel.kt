@@ -2,12 +2,15 @@ package com.gnuoynawh.practice.mvi
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CounterViewModel(
+@HiltViewModel
+class CounterViewModel @Inject constructor(
     //private val repository: CounterRepository
 
     private val getCounterUseCase: GetCounterUseCase,
