@@ -8,10 +8,23 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class CounterViewModel : ViewModel() {
+class CounterViewModel(private val repository: CounterRepository) : ViewModel() {
 
     private val _state = MutableStateFlow(CounterState())           // MutableStateFlow 는 현재 상태 저장
     val state : StateFlow<CounterState> = _state.asStateFlow()      // StateFlow 를 사용해 UI가 구독할 수 있도록 제공
+
+    init {
+        loadCounter()
+    }
+
+    private fun loadCounter() {
+        viewModelScope.launch {
+            repository.getCounter()
+                .collect { count ->
+                    _state.value = CounterState(count = count)
+                }
+        }
+    }
 
     // Intent 를 처리하는 함수
     fun processIntent(intent: CounterIntent) {
