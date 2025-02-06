@@ -1,4 +1,4 @@
-package com.gnuoynawh.practice.mvinews
+package com.gnuoynawh.practice.mvinews.presentation.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.gnuoynawh.practice.mvinews.ui.theme.MVINewsPracticeTheme
+import com.gnuoynawh.practice.mvinews.presentation.ui.theme.MVINewsPracticeTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

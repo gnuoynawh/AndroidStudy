@@ -1,4 +1,4 @@
-package com.gnuoynawh.practice.mvinews.ui.theme
+package com.gnuoynawh.practice.mvinews.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
