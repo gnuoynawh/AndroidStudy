@@ -31,12 +31,17 @@ class CounterViewModel(private val repository: CounterRepository) : ViewModel() 
         viewModelScope.launch {
             when(intent) {
                 is CounterIntent.Increment -> {
-                    _state.value = _state.value.copy(count = _state.value.count + 1)
+                    val newCount = _state.value.count + 1
+                    repository.updateCount(newCount)
+                    _state.value = _state.value.copy(count = newCount)
                 }
                 is CounterIntent.Decrement -> {
-                    _state.value = _state.value.copy(count = _state.value.count - 1)
+                    val newCount = _state.value.count - 1
+                    repository.updateCount(newCount)
+                    _state.value = _state.value.copy(count = newCount)
                 }
                 is CounterIntent.Reset -> {
+                    repository.updateCount(0)
                     _state.value = _state.value.copy(count = 0)
                 }
             }
