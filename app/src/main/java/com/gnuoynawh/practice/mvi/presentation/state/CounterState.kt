@@ -1,4 +1,4 @@
-package com.gnuoynawh.practice.mvi
+package com.gnuoynawh.practice.mvi.presentation.state
 
 /**
  * 앱의 현재 상태

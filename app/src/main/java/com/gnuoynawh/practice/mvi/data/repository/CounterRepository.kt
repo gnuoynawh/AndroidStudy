@@ -1,5 +1,7 @@
-package com.gnuoynawh.practice.mvi
+package com.gnuoynawh.practice.mvi.data.repository
 
+import com.gnuoynawh.practice.mvi.data.local.CounterDao
+import com.gnuoynawh.practice.mvi.data.local.CounterEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 

@@ -1,7 +1,11 @@
-package com.gnuoynawh.practice.mvi
+package com.gnuoynawh.practice.mvi.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.gnuoynawh.practice.mvi.CounterIntent
+import com.gnuoynawh.practice.mvi.domain.usecase.GetCounterUseCase
+import com.gnuoynawh.practice.mvi.domain.usecase.UpdateCounterUserCase
+import com.gnuoynawh.practice.mvi.presentation.state.CounterState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

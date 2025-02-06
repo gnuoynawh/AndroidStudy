@@ -1,5 +1,6 @@
-package com.gnuoynawh.practice.mvi
+package com.gnuoynawh.practice.mvi.domain.usecase
 
+import com.gnuoynawh.practice.mvi.data.repository.CounterRepository
 import kotlinx.coroutines.flow.Flow
 
 class GetCounterUseCase(private val repository: CounterRepository) {

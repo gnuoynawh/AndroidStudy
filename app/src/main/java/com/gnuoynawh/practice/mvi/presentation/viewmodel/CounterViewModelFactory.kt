@@ -1,7 +1,10 @@
-package com.gnuoynawh.practice.mvi
+package com.gnuoynawh.practice.mvi.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.gnuoynawh.practice.mvi.data.repository.CounterRepository
+import com.gnuoynawh.practice.mvi.domain.usecase.GetCounterUseCase
+import com.gnuoynawh.practice.mvi.domain.usecase.UpdateCounterUserCase
 
 class CounterViewModelFactory(private val repository: CounterRepository) : ViewModelProvider.Factory {
 

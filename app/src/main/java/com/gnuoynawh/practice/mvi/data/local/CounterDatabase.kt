@@ -1,4 +1,4 @@
-package com.gnuoynawh.practice.mvi
+package com.gnuoynawh.practice.mvi.data.local
 
 import android.content.Context
 import androidx.room.Database

@@ -1,4 +1,4 @@
-package com.gnuoynawh.practice.mvi.ui.theme
+package com.gnuoynawh.practice.mvi.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

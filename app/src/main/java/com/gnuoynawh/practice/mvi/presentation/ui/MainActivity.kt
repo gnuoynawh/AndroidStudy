@@ -1,4 +1,4 @@
-package com.gnuoynawh.practice.mvi
+package com.gnuoynawh.practice.mvi.presentation.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -21,6 +21,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.gnuoynawh.practice.mvi.CounterIntent
+import com.gnuoynawh.practice.mvi.presentation.viewmodel.CounterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

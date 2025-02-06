@@ -1,7 +1,12 @@
-package com.gnuoynawh.practice.mvi
+package com.gnuoynawh.practice.mvi.di
 
 import android.content.Context
 import androidx.room.Room
+import com.gnuoynawh.practice.mvi.data.local.CounterDao
+import com.gnuoynawh.practice.mvi.data.local.CounterDatabase
+import com.gnuoynawh.practice.mvi.data.repository.CounterRepository
+import com.gnuoynawh.practice.mvi.domain.usecase.GetCounterUseCase
+import com.gnuoynawh.practice.mvi.domain.usecase.UpdateCounterUserCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package com.gnuoynawh.practice.mvi.ui.theme
+package com.gnuoynawh.practice.mvi.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package com.gnuoynawh.practice.mvi
+package com.gnuoynawh.practice.mvi.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
